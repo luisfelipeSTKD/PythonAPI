@@ -2,6 +2,7 @@ import sys
 sys.path.append('../') # para relative imports
 
 import os
+import json
 import requests
 
 import pandas as pd
@@ -39,3 +40,21 @@ downloader(url_to_titanic_data, './data')
 
 df = pd.read_csv('./data/titanic.csv')
 df.to_json(r'./data/titanic.json')
+
+with open('./data/titanic.json') as json_file:
+    data = json.load(json_file)
+
+df = pd.read_json('./data/titanic.json')
+df.to_hdf(
+    './titanic_data.h5',
+    'titanic_data',
+    mode='w'
+)
+
+# pd.read_hdf('./titanic_data.h5')
+
+df.to_feather('./titanic_data.feather')
+
+df.to_parquet('./titanic_data.parquet')
+
+df.to_pickle('./titanic_data.pkl')
