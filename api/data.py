@@ -37,3 +37,5 @@ downloader(url_to_titanic_data, './data')
 
 ###### TRANSFORM DATA ######
 
+df = pd.read_csv('./data/titanic.csv')
+df.to_json(r'./data/titanic.json')
