@@ -10,6 +10,10 @@ UPLOAD_DIRECTORY = "."
 conversions = ['h5', 'pk1', 'feather', 'parquet']
 
 @app.route('/', methods=['GET'])
+def home():
+    return 'This app provides data format transformation!'
+
+@app.route('/', methods=['GET', 'POST'])
 def download_file():
     if request.method == 'POST':
         provided_data = request.files.get('file')
