@@ -3,6 +3,7 @@ sys.path.append('../') # para relative imports
 
 import os
 import json
+import openpyxl
 import requests
 
 import pandas as pd
@@ -40,6 +41,7 @@ downloader(url_to_titanic_data, './data')
 
 df = pd.read_csv('./data/titanic.csv')
 df.to_json(r'./data/titanic.json')
+df.to_excel(r'./data/titanic.xlsx')
 
 with open('./data/titanic.json') as json_file:
     data = json.load(json_file)
