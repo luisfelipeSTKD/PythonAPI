@@ -1,3 +1,8 @@
+os
+json
+flask
 pandas
 numpy
 seaborn
+openpyxl
+requests
