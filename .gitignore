@@ -1,2 +1,4 @@
 api_env/
 data/
+ptf/
+*test.py

@@ -10,6 +10,7 @@ import pandas as pd
 
 from IPython.core.interactiveshell import InteractiveShell
 
+InteractiveShell.ast_node_interactivity = "all"
 
 ######## LOAD DATASET ########
 
@@ -43,20 +44,20 @@ df = pd.read_csv('./data/titanic.csv')
 df.to_json(r'./data/titanic.json')
 df.to_excel(r'./data/titanic.xlsx')
 
-with open('./data/titanic.json') as json_file:
-    data = json.load(json_file)
+# with open('./data/titanic.json') as json_file:
+#     data = json.load(json_file)
 
-df = pd.read_json('./data/titanic.json')
-df.to_hdf(
-    './titanic_data.h5',
-    'titanic_data',
-    mode='w'
-)
+# df = pd.read_json('./data/titanic.json')
+# df.to_hdf(
+#     './titanic_data.h5',
+#     'titanic_data',
+#     mode='w'
+# )
 
 # pd.read_hdf('./titanic_data.h5')
 
-df.to_feather('./titanic_data.feather')
+# df.to_feather('./titanic_data.feather')
 
-df.to_parquet('./titanic_data.parquet')
+# df.to_parquet('./titanic_data.parquet')
 
-df.to_pickle('./titanic_data.pkl')
+# df.to_pickle('./titanic_data.pkl')

@@ -13,12 +13,12 @@ conversions = ['h5', 'pk1', 'feather', 'parquet']
 def home():
     return 'This app provides data format transformation!'
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/downloader', methods=['GET', 'POST'])
 def download_file():
     if request.method == 'POST':
         provided_data = request.files.get('file')
         if provided_data is None:
-            return 'Please enter valid excel format', 400
+            return 'Please enter valid excel format, no file', 400
         provided_format = request.form.get('format')
         if provided_format is None:
             return f'Please enter valid format to convert.', 400
